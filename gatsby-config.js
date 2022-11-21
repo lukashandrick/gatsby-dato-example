@@ -20,11 +20,6 @@ module.exports = {
 			resolve: "translate",
 			options: {
 				locale: "en",
-				// fallbackLocales: `["${[
-				// 	...(process.env.GATSBY_APP_FALLBACK_LANGS || "")
-				// 		.split(",")
-				// 		.filter((entry) => !!entry),
-				// ].join(`","`)}"]`,
 			},
 		},
 	],
