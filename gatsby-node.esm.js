@@ -1,7 +1,51 @@
-exports.createPages = async ({ graphql, actions }) => {}
+import path from "path"
 
-const mainWebsiteQuery = () => `
+const locale = "en";
+
+exports.createPages = async ({ graphql, actions }) => {
+	return Promise.resolve()
+		.then(() => graphql(mainWebsiteQuery(locale)))
+		.then((result) => {
+			if (result.errors) {
+				throw new Error("Error while fetching data!");
+			}
+
+			const {
+				data: {
+					allDatoCmsPage: { nodes: pages },
+				},
+			} = result;
+
+			pages.forEach(({ id, urlPath }) => {
+				if (!urlPath) {
+					return;
+				}
+
+				actions.createPage({
+					path: urlPath,
+					component: path.resolve("./src/templates/pageTemplate.jsx"),
+					context: {
+						id,
+					},
+				});
+			});
+		});
+};
+
+const mainWebsiteQuery = (locale) => `
     query {
-        
+        allDatoCmsPage(
+            locale: "${locale}"
+            filter: {
+                meta: {
+                    isValid: { eq: true }
+                }
+            }
+        ) {
+            nodes {
+                id
+                urlPath
+            }
+        }
     }
-`
+`;
