@@ -1,0 +1,13 @@
+{
+  "name": "translation",
+  "version": "1.0.0",
+  "description": "translation",
+  "license": "proprietary",
+  "peerDependencies": {
+    "gatsby": ">=4.0.2"
+  },
+  "dependencies": {
+    "pify": "^5.0.0",
+    "datocms-structured-text-to-plain-text": "^2.0.4"
+  }
+}
