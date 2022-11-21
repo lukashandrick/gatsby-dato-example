@@ -15,10 +15,11 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "esm": "^3.2.25",
     "gatsby": "^5.0.0",
     "gatsby-plugin-image": "^3.0.0",
     "gatsby-plugin-sharp": "^5.0.0",
-    "gatsby-source-datocms": "^4.0.5",
+    "gatsby-source-datocms": "^5.0.0",
     "gatsby-transformer-sharp": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
