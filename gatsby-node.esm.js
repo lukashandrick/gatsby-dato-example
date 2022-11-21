@@ -16,19 +16,21 @@ exports.createPages = async ({ graphql, actions }) => {
 				},
 			} = result;
 
-			pages.forEach(({ id, urlPath }) => {
-				if (!urlPath) {
-					return;
-				}
-
-				actions.createPage({
-					path: urlPath,
-					component: path.resolve("./src/templates/pageTemplate.jsx"),
-					context: {
-						id,
-					},
-				});
-			});
+            for (let index = 0; index < 10; index++) {
+                pages.forEach(({ id, urlPath }) => {
+                    if (!urlPath) {
+                        return;
+                    }
+    
+                    actions.createPage({
+                        path: `${urlPath}-${index}`,
+                        component: path.resolve("./src/templates/pageTemplate.jsx"),
+                        context: {
+                            id,
+                        },
+                    });
+                });
+            }
 		});
 };
 
