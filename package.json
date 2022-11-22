@@ -12,7 +12,8 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "postinstall": "sh postinstall.sh"
   },
   "dependencies": {
     "esm": "^3.2.25",
